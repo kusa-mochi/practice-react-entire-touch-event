@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  node_env:
+    image: whoatemyapplepie/editor-env-node:0.1.0
+    build:
+      context: node_env
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - NODE_BUILDER_OS=${NODE_BUILDER_OS}
+        - NODE_BUILDER_ARCH=${NODE_BUILDER_ARCH}
+    volumes:
+      - ../:/project
+    ports:
+      - 3000:3000
+    working_dir: /project
+    tty: true
